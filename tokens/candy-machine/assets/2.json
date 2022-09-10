@@ -1,0 +1,24 @@
+{
+  "name": "Happy Hannah",
+  "symbol": "SHIP",
+  "description": "Just a bunch of shipoors getting of localhost..",
+  "image": "2.png",
+  "attributes": [
+    {
+      "trait_type": "Happy",
+      "value": "yes"
+    },
+    {
+      "trait_type": "Buildoor",
+      "value": "absolutely"
+    }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "2.png",
+        "type": "image/png"
+      }
+    ]
+  }
+}
