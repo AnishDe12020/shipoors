@@ -24,3 +24,7 @@ a {
     background: black;
   }
 }
+
+div::-webkit-scrollbar {
+  display: none;
+}
