@@ -8,13 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "create:ship-token": "ts-node ./tokens/ship/index.ts",
-    "reset:candy-machine": "rm tokens/candy-machine/cache.json && cd tokens/candy-machine && sugar launch"
+    "reset:candy-machine": "rm tokens/candy-machine/cache.json; cd tokens/candy-machine && sugar launch -r \"https://api.devnet.solana.com\""
   },
   "dependencies": {
     "@chakra-ui/react": "^2.3.1",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@metaplex-foundation/js": "^0.15.0",
+    "@orbits-ui/chakra-theme": "^0.2.0",
     "@solana/spl-token": "^0.3.4",
     "@solana/wallet-adapter-base": "^0.9.16",
     "@solana/wallet-adapter-react": "^0.15.18",

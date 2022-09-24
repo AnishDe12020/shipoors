@@ -1793,6 +1793,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@orbits-ui/chakra-theme@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@orbits-ui/chakra-theme/-/chakra-theme-0.2.0.tgz#0a3ecd64a8bd4991bb33ddc959b5e46b62121af3"
+  integrity sha512-6YhN9/K2Rkln2kLkO0MjhSZmQ9gr5Qgc9ntQVo3uQOxgsai+HhlpyUEgWa6xpxtuSuac2rY4jLJvB25U7tWyHA==
+
 "@particle-network/auth@^0.5.5":
   version "0.5.6"
   resolved "https://registry.yarnpkg.com/@particle-network/auth/-/auth-0.5.6.tgz#058e00980511fdf72189b6d4a7576e67934a008a"

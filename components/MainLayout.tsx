@@ -8,7 +8,7 @@ const MainLayout = ({ children }: { children: ReactNode }) => {
   const { connected } = useWallet();
 
   return (
-    <Box bg="background">
+    <Box >
       <Head>
         <title>Shipoors</title>
         <meta name="description" content="NFT Collection for Shipoors" />
