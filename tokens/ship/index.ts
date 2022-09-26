@@ -9,11 +9,12 @@ import {
   DataV2,
   createCreateMetadataAccountV2Instruction,
 } from "@metaplex-foundation/mpl-token-metadata";
-import { createMint } from "@solana/spl-token";
+import { AuthorityType, createMint, setAuthority } from "@solana/spl-token";
 import {
   clusterApiUrl,
   Connection,
   Keypair,
+  PublicKey,
   sendAndConfirmTransaction,
   Transaction,
 } from "@solana/web3.js";
@@ -27,7 +28,8 @@ const TOKEN_IMAGE_PATH = "tokens/ship/assets/rickroll.gif";
 const TOKEN_IMAGE_NAME = "rickroll.gif";
 const TOKEN_DECIMALS = 2;
 
-const createShipToken = async (conn: Connection, payer: Keypair) => {
+const createShipToken = async (conn: Connection, payer: Keypair, programId: PublicKey) => {
+  const [mintAuth] = await PublicKey.findProgramAddress([Buffer.from("mint")], programId);
   const tokenMint = await createMint(
     conn,
     payer,
@@ -95,6 +97,8 @@ const createShipToken = async (conn: Connection, payer: Keypair) => {
     `$SHIP Token Transaction: https://explorer.solana.com/tx/${sig}?cluster=devnet`
   );
 
+  await setAuthority(conn, payer, tokenMint, payer.publicKey, AuthorityType.MintTokens, mintAuth);
+
   writeFileSync(
     "tokens/ship/cache.json",
     JSON.stringify({
@@ -111,7 +115,7 @@ const main = async () => {
   const connection = new Connection(clusterApiUrl("devnet"));
   const payer = await initializeKeypair(connection);
 
-  await createShipToken(connection, payer);
+  await createShipToken(connection, payer, new PublicKey("DRpNUpAcvZ1boxF9GceayfGujwsL7yb1FPw1BJqdZUNm"));
 };
 
 main()
